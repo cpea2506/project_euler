@@ -1,0 +1,11 @@
+[package]
+name = "pj_euler"
+version = "0.1.0"
+authors = ["cpea2506 <vienpro2506@gmail.com"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+humantime = "2.1.0"
+owo-colors = "3.2.0"
