@@ -7,11 +7,10 @@ Another place for me to practice solving problems and training my Rust skill.
 ```
 cargo run --release prob<id>
 
-<id>: problem id
+<id>: problem's id
 ```
-
-#### note: 
-The id of problem according to problem id on [Project Euler](https://projecteuler.net/progress)
+#### Note: 
+The id of problem according to problem's id on [Project Euler](https://projecteuler.net/progress)
 
 For example: 
 
