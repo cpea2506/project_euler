@@ -29,12 +29,15 @@ macro_rules! solution {
 #[macro_export]
 macro_rules! test {
     ($({$test_name:ident, $fun:expr, $answer:expr}),+) => {
+        use std::any::TypeId;
+
         #[cfg(test)]
         mod test {
             use super::*;
 
             $(
                 #[test]
+                #[allow(clippy::bool_assert_comparison)]
                 fn $test_name() {
                     assert_eq!($fun, $answer);
                 }
