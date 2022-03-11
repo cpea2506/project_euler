@@ -5,7 +5,7 @@ Another place for me to practice solving problems and training my Rust skill.
 ## Usage:
 
 ```
-cargo run --release prob<id>
+cargo run --release --bin prob<id>
 
 <id>: problem's id
 ```
@@ -14,5 +14,5 @@ The id of problem according to problem's id on [Project Euler](https://projecteu
 
 For example: 
 
-- `cargo run --release prob1` to see solution for problem 1
-- `cargo run --release prob2` to see solution for problem 2
+- `cargo run --release --bin prob1` to see solution for problem 1
+- `cargo run --release --bin prob2` to see solution for problem 2
