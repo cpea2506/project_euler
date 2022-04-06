@@ -1,4 +1,5 @@
 // Sum square difference
+
 trait Math {
     fn sum_of_squares(&self) -> u32;
     fn square_of_sum(&self) -> u32;
@@ -20,7 +21,7 @@ fn sum_square_difference(n: u32) -> u32 {
     n.square_of_sum() - n.sum_of_squares()
 }
 
-pj_euler::solution!("Sum square difference", sum_square_difference(100));
+pj_euler::run!("Sum square difference", sum_square_difference(100));
 
 pj_euler::test!(
     {sum_of_squares_of_ten, 10.sum_of_squares(), 385},

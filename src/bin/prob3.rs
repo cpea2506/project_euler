@@ -26,7 +26,7 @@ fn largest_prime_factor(mut num: u64) -> u64 {
     num
 }
 
-pj_euler::solution!("Largest prime factor", largest_prime_factor(600851475143));
+pj_euler::run!("Largest prime factor", largest_prime_factor(600851475143));
 
 pj_euler::test!(
     {largest_prime_factor_of_13195, largest_prime_factor(13195), 29},

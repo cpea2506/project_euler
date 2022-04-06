@@ -42,7 +42,7 @@ fn evenly_divisible_by(range: RangeInclusive<u64>) -> u64 {
     range.reduce(lcm).unwrap_or_default()
 }
 
-pj_euler::solution!("Smallest multiple", evenly_divisible_by(1..=20));
+pj_euler::run!("Smallest multiple", evenly_divisible_by(1..=20));
 
 pj_euler::test!(
     {one_to_five, evenly_divisible_by(1..=5), 60},

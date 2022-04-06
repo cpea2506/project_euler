@@ -1,3 +1,5 @@
+// 10001st prime
+
 fn is_prime(n: u32) -> bool {
     if n <= 1 {
         return false;
@@ -56,7 +58,7 @@ fn nth_prime(bound: usize) -> u32 {
     number
 }
 
-pj_euler::solution!("prob7", nth_prime(10_001));
+pj_euler::run!("10001st prime", nth_prime(10_001));
 
 pj_euler::test!(
     {one_is_not_prine, is_prime(1), false},

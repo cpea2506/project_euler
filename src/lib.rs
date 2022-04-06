@@ -1,12 +1,22 @@
+use std::time::{Duration, Instant};
+
+#[doc(hidden)]
+pub fn __get_time<T>(func: impl FnOnce() -> T) -> (T, Duration) {
+    let start = Instant::now();
+    let result = func();
+    let time = start.elapsed();
+
+    (result, time)
+}
+
 #[macro_export]
-macro_rules! solution {
-    ($name:expr, $solve:expr) => {
+macro_rules! run {
+    ($name:expr, $solution:expr) => {
         use humantime::format_duration;
         use owo_colors::OwoColorize;
-        use std::time::{Duration, Instant};
 
         fn main() {
-            let (solution, time) = get_time(|| $solve);
+            let (solution, time) = $crate::__get_time(|| $solution);
 
             println!(
                 "{name}: {solution} in {time}",
@@ -14,14 +24,6 @@ macro_rules! solution {
                 solution = solution.fg_rgb::<255, 63, 128>(),
                 time = format_duration(time).fg_rgb::<101, 252, 218>(),
             );
-        }
-
-        fn get_time<T>(f: impl FnOnce() -> T) -> (T, Duration) {
-            let start = Instant::now();
-            let result = f();
-            let time = start.elapsed();
-
-            (result, time)
         }
     };
 }
