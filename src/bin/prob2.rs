@@ -30,7 +30,7 @@ fn sum_not_exceed(bound: u32) -> u32 {
     fibo.take_while(|&f| f < bound).filter(|f| f % 2 == 0).sum()
 }
 
-pj_euler::solution!("Even Fibonacci numbers", sum_not_exceed(4_000_000));
+pj_euler::run!("Even Fibonacci numbers", sum_not_exceed(4_000_000));
 
 pj_euler::test!(
    {sum_below_five, sum_not_exceed(5), 2}, // 2

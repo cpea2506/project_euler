@@ -10,7 +10,7 @@ fn sum(target: u32) -> u32 {
     sum_divisible_by(target, 3) + sum_divisible_by(target, 5) - sum_divisible_by(target, 15)
 }
 
-pj_euler::solution!("Multiple of 3 or 5", sum(1000));
+pj_euler::run!("Multiple of 3 or 5", sum(1000));
 
 pj_euler::test!(
     {sum_divisible_by_3_with_target_10, sum_divisible_by(10, 3), 18},
