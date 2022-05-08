@@ -1,0 +1,3 @@
+[alias]
+
+euler = "run --release --bin"
