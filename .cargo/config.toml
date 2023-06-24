@@ -1,3 +1,4 @@
 [alias]
 
 euler = "run --release --bin"
+euler_test = "test --bin"
