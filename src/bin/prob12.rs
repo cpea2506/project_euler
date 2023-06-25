@@ -1,17 +1,36 @@
 // Highly Divisible Triangular Number
 
 trait Divisor {
-    fn divisor_count(self) -> usize;
+    fn divisor_count(self) -> Self;
 }
 
 impl Divisor for usize {
-    //TODO: use prime factors for faster counting time
-    fn divisor_count(self) -> usize {
-        if self == 1 {
-            1
-        } else {
-            (1..=self).filter(|v| self % v == 0).count()
+    fn divisor_count(mut self) -> Self {
+        let mut count = 1;
+
+        for prime in 2usize.. {
+            if prime.pow(2) > self {
+                count *= 2;
+                break;
+            }
+
+            if self % prime == 0 {
+                let mut factor_count = 0;
+
+                while self % prime == 0 {
+                    self /= prime;
+                    factor_count += 1;
+                }
+
+                count *= factor_count + 1;
+
+                if self == 1 {
+                    break;
+                }
+            }
         }
+
+        count
     }
 }
 
@@ -51,7 +70,7 @@ pj_euler::run!(
 );
 
 pj_euler::test!(
-    { over_5_divisors, highly_divisible_triangular_number(5),  28},
-    {divisor_count_of_6_is_4, 3.divisor_count(), 2},
+    {over_5_divisors, highly_divisible_triangular_number(5),  28},
+    {divisor_count_of_6_is_4, 6.divisor_count(), 4},
     {divisor_count_of_28_is_6, 28.divisor_count(), 6}
 );
