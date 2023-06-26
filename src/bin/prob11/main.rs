@@ -1,13 +1,11 @@
 // Largest Product in a Grid
 
-use std::fs;
-
 const SIZE: usize = 20;
 const DX: [isize; 4] = [1, 0, 1, -1];
 const DY: [isize; 4] = [0, 1, 1, 1];
 
 fn largest_product_in_grid(num_digits: usize) -> usize {
-    let data: &str = &fs::read_to_string("src/bin/prob11/data.txt").unwrap();
+    let data = include_str!("data.txt");
 
     let vec_data = data
         .lines()

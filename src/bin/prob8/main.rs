@@ -1,9 +1,8 @@
 // Largest product in a series
 
-use std::fs;
-
 fn greatest_product(num_digits: usize) -> usize {
-    let data: &str = &fs::read_to_string("src/bin/prob8/data.txt").unwrap();
+    let data = include_str!("data.txt");
+
     let vec_data = data
         .lines()
         .flat_map(|l| l.chars())
