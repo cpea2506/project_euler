@@ -15,6 +15,7 @@ struct CollatzSequence {
     curr: usize,
 }
 
+#[allow(dead_code)]
 impl CollatzSequence {
     fn new(starting_number: usize) -> Self {
         Self {
@@ -47,19 +48,36 @@ impl Iterator for CollatzSequence {
 }
 
 fn longest_collatz_sequence() -> usize {
-    let (mut longest_chain, mut starting_number) = (usize::MIN, 2);
+    // (2..1_000_000)
+    //     .max_by_key(|&v| CollatzSequence::new(v).count())
+    //     .unwrap_or_default()
 
-    (starting_number..1_000_000).for_each(|v| {
-        let collatz_sequence = CollatzSequence::new(v);
-        let count = collatz_sequence.count();
+    // PERF: faster speed using caching approach
+    let mut collatz_sequence = [0; 1_000_000];
+    collatz_sequence[2] = 2;
 
-        if count > longest_chain {
-            longest_chain = count;
-            starting_number = v;
-        }
-    });
+    (3..collatz_sequence.len())
+        .max_by_key(|&curr| {
+            let mut prev = curr;
+            let mut len = 0;
 
-    starting_number
+            while prev >= collatz_sequence.len() || collatz_sequence[prev] == 0 {
+                if prev.is_even() {
+                    prev /= 2;
+                } else {
+                    prev = 3 * prev + 1;
+                }
+
+                len += 1;
+            }
+
+            len += collatz_sequence[prev];
+
+            collatz_sequence[curr] = len;
+
+            len
+        })
+        .unwrap_or_default()
 }
 
 pj_euler::run!("Longest Collatz Sequence", longest_collatz_sequence());
