@@ -33,6 +33,8 @@ fn sum_not_exceed(bound: u32) -> u32 {
 pj_euler::run!("Even Fibonacci numbers", sum_not_exceed(4_000_000));
 
 pj_euler::test!(
-   {sum_below_five, sum_not_exceed(5), 2}, // 2
-   {sum_below_ten, sum_not_exceed(10), 10} // 2 and 8
+   even_fibonacci_numbers {
+       {sum_below_five, sum_not_exceed(5), 2}, // 2
+       {sum_below_ten, sum_not_exceed(10), 10} // 2 and 8
+   }
 );

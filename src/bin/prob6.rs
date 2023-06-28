@@ -24,7 +24,9 @@ fn sum_square_difference(n: u32) -> u32 {
 pj_euler::run!("Sum square difference", sum_square_difference(100));
 
 pj_euler::test!(
-    {sum_of_squares_of_ten, 10.sum_of_squares(), 385},
-    {square_of_sum_of_ten, 10.square_of_sum(), 3025},
-    {first_ten, sum_square_difference(10), 2640}
+    sum_square_difference {
+        {sum_of_squares_of_ten, 10.sum_of_squares(), 385},
+        {square_of_sum_of_ten, 10.square_of_sum(), 3025},
+        {first_ten, sum_square_difference(10), 2640}
+    }
 );

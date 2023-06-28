@@ -45,8 +45,10 @@ fn evenly_divisible_by(range: RangeInclusive<u64>) -> u64 {
 pj_euler::run!("Smallest multiple", evenly_divisible_by(1..=20));
 
 pj_euler::test!(
-    {one_to_five, evenly_divisible_by(1..=5), 60},
-    {one_to_seven, evenly_divisible_by(1..=7), 420},
-    {one_to_ten, evenly_divisible_by(1..=10), 2520},
-    {one_to_thirteen, evenly_divisible_by(1..=13), 360360}
+    smallest_multiple {
+        {one_to_five, evenly_divisible_by(1..=5), 60},
+        {one_to_seven, evenly_divisible_by(1..=7), 420},
+        {one_to_ten, evenly_divisible_by(1..=10), 2520},
+        {one_to_thirteen, evenly_divisible_by(1..=13), 360360}
+    }
 );

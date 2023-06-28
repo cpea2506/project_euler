@@ -69,10 +69,12 @@ fn nth_prime(bound: usize) -> u32 {
 pj_euler::run!("10001st prime", nth_prime(10_001));
 
 pj_euler::test!(
-    {one_is_not_prine, 1.is_prime(), false},
-    {two_is_prime, 2.is_prime(), true},
-    {three_is_prime, 3.is_prime(), true},
-    {four_is_not_prime, 4.is_prime(), false},
-    {sixth_prime_is_thirteen, nth_prime(6), 13},
-    {second_prime_is_three, nth_prime(2), 3}
+    prime_10001st {
+        {one_is_not_prine, 1.is_prime(), false},
+        {two_is_prime, 2.is_prime(), true},
+        {three_is_prime, 3.is_prime(), true},
+        {four_is_not_prime, 4.is_prime(), false},
+        {sixth_prime_is_thirteen, nth_prime(6), 13},
+        {second_prime_is_three, nth_prime(2), 3}
+    }
 );

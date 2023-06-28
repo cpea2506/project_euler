@@ -27,5 +27,7 @@ fn sum_prime_below(limit: usize) -> usize {
 pj_euler::run!("Summation of primes", sum_prime_below(2_000_000));
 
 pj_euler::test!(
-    {sum_prime_below_10, sum_prime_below(10), 17}
+    summation_of_primes {
+        {sum_prime_below_10, sum_prime_below(10), 17}
+    }
 );

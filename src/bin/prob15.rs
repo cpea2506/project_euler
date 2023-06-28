@@ -45,5 +45,7 @@ fn lattice_path_counter(grid_size: usize) -> usize {
 pj_euler::run!("Lattice Paths", lattice_path_counter(20));
 
 pj_euler::test!(
-    {grid_size_2, lattice_path_counter(2), 6}
+    lattice_paths {
+        {grid_size_2_have_6_paths, lattice_path_counter(2), 6}
+    }
 );

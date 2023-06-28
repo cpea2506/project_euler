@@ -30,9 +30,9 @@ macro_rules! run {
 
 #[macro_export]
 macro_rules! test {
-    ($({$test_name:ident, $fun:expr, $answer:expr}),+) => {
+    ($mod_name:ident{$({$test_name:ident, $fun:expr, $answer:expr}),+}) => {
         #[cfg(test)]
-        mod test {
+        mod $mod_name {
             use super::*;
 
             $(

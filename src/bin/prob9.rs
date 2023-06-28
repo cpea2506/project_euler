@@ -22,8 +22,10 @@ pj_euler::run!(
 );
 
 pj_euler::test!(
-    {triplet_3_4_5, pythagorean_triplet_product(12), Some(60)},
-    {triplet_6_8_10, pythagorean_triplet_product(24), Some(480)},
-    {triplet_7_24_25, pythagorean_triplet_product(56), Some(4200)},
-    {triplet_not_find_out, pythagorean_triplet_product(3), None}
+    special_pythagorean_triplet {
+        {triplet_3_4_5, pythagorean_triplet_product(12), Some(60)},
+        {triplet_6_8_10, pythagorean_triplet_product(24), Some(480)},
+        {triplet_7_24_25, pythagorean_triplet_product(56), Some(4200)},
+        {triplet_not_find_out, pythagorean_triplet_product(3), None}
+    }
 );

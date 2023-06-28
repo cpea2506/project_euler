@@ -70,7 +70,9 @@ pj_euler::run!(
 );
 
 pj_euler::test!(
-    {over_5_divisors, highly_divisible_triangular_number(5),  28},
-    {divisor_count_of_6_is_4, 6.divisor_count(), 4},
-    {divisor_count_of_28_is_6, 28.divisor_count(), 6}
+    highly_divisible_triangular_number {
+        {over_5_divisors, highly_divisible_triangular_number(5),  28},
+        {divisor_count_of_6_is_4, 6.divisor_count(), 4},
+        {divisor_count_of_28_is_6, 28.divisor_count(), 6}
+    }
 );

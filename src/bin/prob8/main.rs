@@ -19,5 +19,7 @@ fn greatest_product(num_digits: usize) -> usize {
 pj_euler::run!("Largest product in a series", greatest_product(13));
 
 pj_euler::test!(
-    {greatest_product_of_4_adjacent_digits, greatest_product(4), 5832}
+    largest_product_in_a_series {
+        {greatest_product_of_4_adjacent_digits, greatest_product(4), 5832}
+    }
 );
