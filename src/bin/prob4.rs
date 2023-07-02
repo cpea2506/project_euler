@@ -1,6 +1,5 @@
 // Largest palindrome product
 
-#[allow(dead_code)]
 fn is_palindrome(num: u32) -> bool {
     let mut temp = num;
     let mut sum = 0;
