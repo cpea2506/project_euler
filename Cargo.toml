@@ -1,7 +1,7 @@
 [package]
 name = "pj_euler"
 version = "0.1.0"
-authors = ["cpea2506 <vienpro2506@gmail.com"]
+authors = ["cpea2506 <cpea2506@gmail.com"]
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html

@@ -1,5 +1,7 @@
 // Longest Collatz Sequence
 
+use std::ops::Range;
+
 trait Math {
     fn is_even(&self) -> bool;
 }
@@ -10,14 +12,15 @@ impl Math for usize {
     }
 }
 
+type Number = usize;
+
 struct CollatzSequence {
-    prev: Option<usize>,
-    curr: usize,
+    prev: Option<Number>,
+    curr: Number,
 }
 
-#[allow(dead_code)]
 impl CollatzSequence {
-    fn new(starting_number: usize) -> Self {
+    fn new(starting_number: Number) -> Self {
         Self {
             prev: None,
             curr: starting_number,
@@ -26,7 +29,7 @@ impl CollatzSequence {
 }
 
 impl Iterator for CollatzSequence {
-    type Item = usize;
+    type Item = Number;
 
     fn next(&mut self) -> Option<Self::Item> {
         if self.curr == 1 {
@@ -47,40 +50,38 @@ impl Iterator for CollatzSequence {
     }
 }
 
-fn longest_collatz_sequence() -> usize {
-    // (2..1_000_000)
-    //     .max_by_key(|&v| CollatzSequence::new(v).count())
-    //     .unwrap_or_default()
+fn longest_collatz_sequence(range: Range<Number>) -> Number {
+    let end = range.end;
 
-    // PERF: faster speed using caching approach
-    let mut collatz_sequence = [0; 1_000_000];
-    collatz_sequence[2] = 2;
+    let mut collatz_sequence_map = vec![0; end];
+    collatz_sequence_map[2] = 2;
 
-    (3..collatz_sequence.len())
-        .max_by_key(|&curr| {
-            let mut prev = curr;
-            let mut len = 0;
+    range
+        .max_by_key(|&value| {
+            let collatz_iter = CollatzSequence::new(value);
+            let mut prev = 0;
 
-            while prev >= collatz_sequence.len() || collatz_sequence[prev] == 0 {
-                if prev.is_even() {
-                    prev /= 2;
-                } else {
-                    prev = 3 * prev + 1;
-                }
+            let mut len = collatz_iter
+                .take_while(|&v| {
+                    prev = v;
 
-                len += 1;
-            }
+                    v >= end || collatz_sequence_map[v] == 0
+                })
+                .count();
 
-            len += collatz_sequence[prev];
+            len += collatz_sequence_map[prev];
 
-            collatz_sequence[curr] = len;
+            collatz_sequence_map[value] = len;
 
             len
         })
         .unwrap_or_default()
 }
 
-pj_euler::run!("Longest Collatz Sequence", longest_collatz_sequence());
+pj_euler::run!(
+    "Longest Collatz Sequence",
+    longest_collatz_sequence(2..1_000_000)
+);
 
 pj_euler::test!(
     longest_collatz_sequence {
