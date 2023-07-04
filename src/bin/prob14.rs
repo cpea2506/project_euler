@@ -85,6 +85,6 @@ pj_euler::run!(
 
 pj_euler::test!(
     longest_collatz_sequence {
-        {collatz_sequence_start_at_13, CollatzSequence::new(13).collect::<Vec<usize>>(), vec![13, 40, 20, 10, 5, 16, 8, 4 ,2 , 1]}
+        {collatz_sequence_start_at_13, CollatzSequence::new(13).collect::<Vec<usize>>(), vec![13, 40, 20, 10, 5, 16, 8, 4, 2, 1]}
     }
 );
