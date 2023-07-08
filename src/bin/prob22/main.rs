@@ -54,5 +54,6 @@ pj_euler::test!(
 
             assert_eq!(alphabetical_order, 48);
             assert_eq!(score, 240);
-        }
-});
+        },
+    }
+);

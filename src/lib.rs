@@ -30,14 +30,13 @@ macro_rules! run {
 
 #[macro_export]
 macro_rules! test {
-    ($mod_name:ident{$({$test_name:ident, $fun:expr, $answer:expr}),+}) => {
+    ($mod_name:ident{$({$test_name:ident, $fun:expr, $answer:expr}),+ $(,)?}) => {
         #[cfg(test)]
         mod $mod_name {
             use super::*;
 
             $(
                 #[test]
-                #[allow(clippy::bool_assert_comparison)]
                 fn $test_name() {
                     assert_eq!($fun, $answer);
                 }
@@ -45,7 +44,7 @@ macro_rules! test {
         }
     };
 
-    ($mod_name:ident{$($test_name:ident $fun:expr),+}) => {
+    ($mod_name:ident{$($test_name:ident $fun:expr),+ $(,)?}) => {
         #[cfg(test)]
         mod $mod_name {
             use super::*;
