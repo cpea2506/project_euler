@@ -44,4 +44,18 @@ macro_rules! test {
             )+
         }
     };
+
+    ($mod_name:ident{$($test_name:ident $fun:expr),+}) => {
+        #[cfg(test)]
+        mod $mod_name {
+            use super::*;
+
+            $(
+                #[test]
+                fn $test_name() {
+                    $fun
+                }
+            )+
+        }
+    }
 }
