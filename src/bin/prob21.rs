@@ -19,6 +19,7 @@ fn sum_amicable_numbers(limit: Number) -> Number {
 }
 
 pj_euler::run!("Amicable Numbers", sum_amicable_numbers(10000));
+
 pj_euler::test!(
     amicable_numbers {
         {sum_amicable_numbers_less_than_1000, sum_amicable_numbers(1000), 220 + 284}

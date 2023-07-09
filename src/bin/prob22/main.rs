@@ -36,6 +36,7 @@ fn names_scores_sum() -> usize {
 }
 
 pj_euler::run!("Names Scores", names_scores_sum());
+
 pj_euler::test!(
     names_scores {
         colin_alphabetical_value {
