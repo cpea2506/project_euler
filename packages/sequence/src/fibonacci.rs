@@ -1,5 +1,8 @@
-use num_traits::{One, Zero};
-use std::ops::{Add, AddAssign, Sub, SubAssign};
+use num_traits::One;
+use std::{
+    mem,
+    ops::{Add, AddAssign, Sub, SubAssign},
+};
 
 pub struct Fibonacci<T> {
     curr: T,
@@ -8,18 +11,18 @@ pub struct Fibonacci<T> {
 
 impl<T> Default for Fibonacci<T>
 where
-    T: One + Zero,
+    T: One,
 {
     fn default() -> Self {
         Self::new()
     }
 }
 
-impl<T: Zero + One> Fibonacci<T> {
+impl<T: One> Fibonacci<T> {
     #[inline]
     pub fn new() -> Self {
         Fibonacci {
-            curr: Zero::zero(),
+            curr: One::one(),
             next: One::one(),
         }
     }
@@ -27,16 +30,16 @@ impl<T: Zero + One> Fibonacci<T> {
 
 impl<T> Iterator for Fibonacci<T>
 where
-    T: AddAssign + SubAssign + Add<Output = T> + Sub<Output = T> + Copy,
+    T: AddAssign + SubAssign + Add<Output = T> + Sub<Output = T> + Clone,
 {
     type Item = T;
 
     #[inline]
     fn next(&mut self) -> Option<Self::Item> {
-        self.curr += self.next;
-        self.next = self.curr - self.next;
+        let next = self.curr.clone() + self.next.clone();
+        let current = mem::replace(&mut self.next, next);
 
-        Some(self.curr)
+        Some(mem::replace(&mut self.curr, current))
     }
 }
 

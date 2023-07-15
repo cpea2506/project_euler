@@ -1,34 +1,13 @@
 // 1000-digit Fibonacci Number
 
-struct Fibonacci {
-    curr: usize,
-    next: usize,
-}
-
-impl Fibonacci {
-    fn new() -> Self {
-        Fibonacci { curr: 0, next: 1 }
-    }
-}
-
-impl Iterator for Fibonacci {
-    type Item = usize;
-
-    fn next(&mut self) -> Option<Self::Item> {
-        let new_value = self.curr + self.next;
-
-        self.curr = self.next;
-        self.next = new_value;
-
-        Some(self.curr)
-    }
-}
+use num_bigint::BigUint;
+use sequence::fibonacci::Fibonacci;
 
 fn thousand_digit_fibonacci_number(number_of_digit: usize) -> usize {
-    let fibonacci = Fibonacci::new();
+    let limit = "9".repeat(number_of_digit - 1).parse::<BigUint>().unwrap();
 
-    fibonacci
-        .filter(|&d| (d as f64).log10() as usize + 1 == number_of_digit)
+    Fibonacci::<BigUint>::new()
+        .take_while(|n| *n <= limit)
         .count()
         + 1
 }
@@ -40,10 +19,6 @@ pj_euler::run!(
 
 pj_euler::test!(
     thousand_digit_fibonacci_number {
-        first_five_fibonacci {
-            let fibo = Fibonacci::new();
-            assert_eq!(fibo.take(5).collect::<Vec<usize>>(), &[1, 1, 2, 3, 5]);
-        },
         first_three_digit_has_144 {
             assert_eq!(thousand_digit_fibonacci_number(3), 12);
         },
