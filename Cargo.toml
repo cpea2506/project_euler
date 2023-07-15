@@ -11,3 +11,12 @@ humantime = "2.1.0"
 owo-colors = "3.2.0"
 lazy_static = "1.4.0"
 chrono = "0.4.26"
+num-bigint = "0.4.3"
+num-integer = "0.1.45"
+num-traits = "0.2.15"
+
+[dependencies.sequence]
+path = "./packages/sequence"
+
+[dependencies.number]
+path = "./packages/number"

@@ -1,33 +1,12 @@
 // Even Fibonacci numbers
 
-struct Fibonacci {
-    curr: u32,
-    next: u32,
-}
+use sequence::fibonacci::Fibonacci;
 
-impl Fibonacci {
-    fn new() -> Self {
-        Fibonacci { curr: 1, next: 1 }
-    }
-}
-
-impl Iterator for Fibonacci {
-    type Item = u32;
-
-    fn next(&mut self) -> Option<Self::Item> {
-        let new_value = self.curr + self.next;
-
-        self.curr = self.next;
-        self.next = new_value;
-
-        Some(self.curr)
-    }
-}
-
-fn sum_not_exceed(bound: u32) -> u32 {
-    let fibo = Fibonacci::new();
-
-    fibo.take_while(|&f| f < bound).filter(|f| f % 2 == 0).sum()
+fn sum_not_exceed(bound: i32) -> i32 {
+    Fibonacci::new()
+        .take_while(|&f| f < bound)
+        .filter(|f| f % 2 == 0)
+        .sum()
 }
 
 pj_euler::run!("Even Fibonacci numbers", sum_not_exceed(4_000_000));
