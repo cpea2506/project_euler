@@ -1,5 +1,7 @@
 // Highly Divisible Triangular Number
 
+use sequence::triangular_sequence::TriangularSequence;
+
 trait Divisor {
     fn divisor_count(self) -> Self;
 }
@@ -34,34 +36,10 @@ impl Divisor for usize {
     }
 }
 
-struct TriangularNumber {
-    sum: usize,
-    curr: usize,
-}
+fn highly_divisible_triangular_number(num_divisor: usize) -> Option<usize> {
+    let mut triangular_number = TriangularSequence::<usize>::new();
 
-impl TriangularNumber {
-    fn new() -> Self {
-        Self { sum: 0, curr: 1 }
-    }
-}
-
-impl Iterator for TriangularNumber {
-    type Item = usize;
-
-    fn next(&mut self) -> Option<Self::Item> {
-        self.sum += self.curr;
-        self.curr += 1;
-
-        Some(self.sum)
-    }
-}
-
-fn highly_divisible_triangular_number(num_divisor: usize) -> usize {
-    let mut triangular_number = TriangularNumber::new();
-
-    triangular_number
-        .find(|v| v.divisor_count() >= num_divisor)
-        .unwrap_or_default()
+    triangular_number.find(|v| v.divisor_count() >= num_divisor)
 }
 
 pj_euler::run!(
@@ -71,8 +49,8 @@ pj_euler::run!(
 
 pj_euler::test!(
     highly_divisible_triangular_number {
-        {over_5_divisors, highly_divisible_triangular_number(5),  28},
+        {over_5_divisors, highly_divisible_triangular_number(5), Some(28)},
         {divisor_count_of_6_is_4, 6.divisor_count(), 4},
-        {divisor_count_of_28_is_6, 28.divisor_count(), 6}
+        {divisor_count_of_28_is_6, 28.divisor_count(), 6},
     }
 );

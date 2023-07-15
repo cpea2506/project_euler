@@ -1,9 +1,7 @@
 // Lexicographic Permutations
 // See: https://en.wikipedia.org/wiki/Factorial_number_system
 
-type Number = usize;
-
-fn factorial_numbers(limit: Number) -> Vec<Number> {
+fn factorial_numbers(limit: usize) -> Vec<usize> {
     let mut factorial_numbers = vec![1; limit];
 
     for n in 2..limit {
@@ -13,7 +11,7 @@ fn factorial_numbers(limit: Number) -> Vec<Number> {
     factorial_numbers
 }
 
-fn lexicographic_permutations_nth(list: &[Number], nth: usize) -> String {
+fn lexicographic_permutations_nth(list: &[usize], nth: usize) -> String {
     let mut list = list.to_vec();
     let factorial_numbers = factorial_numbers(list.len());
     let mut permutation = String::with_capacity(list.len());

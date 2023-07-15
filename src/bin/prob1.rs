@@ -18,6 +18,6 @@ pj_euler::test!(
         {sum_divisible_by_5_with_target_10, sum_divisible_by(10, 5), 5},
         {sum_divisible_by_15_with_target_10, sum_divisible_by(10, 15), 0},
         {sum_below_ten, sum(10), 23},
-        {sum_above_ten, sum(20), 78}
+        {sum_above_ten, sum(20), 78},
     }
 );

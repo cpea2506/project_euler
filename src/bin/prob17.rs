@@ -3,11 +3,8 @@
 use lazy_static::lazy_static;
 use std::{collections::HashMap, ops::RangeInclusive};
 
-type Number = usize;
-type LetterCount = usize;
-
 lazy_static! {
-    static ref NUMBER_LETTER_COUNT: HashMap<Number, LetterCount> = HashMap::from([
+    static ref NUMBER_LETTER_COUNT: HashMap<usize, usize> = HashMap::from([
         (0, 0), // ignore zero
         (1, "one".len()),
         (2, "two".len()),
@@ -89,6 +86,6 @@ pj_euler::test!(
         {count_only_202, 202.letter_count(), 16},
         {count_only_400, 400.letter_count(), 11},
         {count_only_115, 115.letter_count(), 20},
-        {count_only_1000, 1000.letter_count(), 11}
+        {count_only_1000, 1000.letter_count(), 11},
     }
 );

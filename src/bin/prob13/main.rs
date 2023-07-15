@@ -4,7 +4,7 @@ fn ten_digits_of_large_sum() -> String {
     let data = include_str!("data.txt");
 
     data.lines()
-        .map(|l| l.parse::<f64>().unwrap())
+        .filter_map(|l| l.parse::<f64>().ok())
         .sum::<f64>()
         .to_string()
         .chars()

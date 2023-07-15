@@ -28,12 +28,12 @@ fn sunday_in_1st_count(start: &str, end: &str) -> ParseResult<usize> {
 
 pj_euler::run!(
     "Counting Sundays",
-    sunday_in_1st_count("1/1/1901", "31/12/2000").unwrap_or_default()
+    sunday_in_1st_count("1/1/1901", "31/12/2000")
 );
 
 pj_euler::test!(
     counting_sunday {
-        {from_1_1_1900_to_1_1_1910, sunday_in_1st_count("1/1/1900", "1/1/1910").unwrap_or_default(), 18},
-        {from_1_1_2000_to_1_1_2020, sunday_in_1st_count("1/1/2000", "1/1/2020").unwrap_or_default(), 35}
+        {from_1_1_1900_to_1_1_1910, sunday_in_1st_count("1/1/1900", "1/1/1910"), Ok(18)},
+        {from_1_1_2000_to_1_1_2020, sunday_in_1st_count("1/1/2000", "1/1/2020"), Ok(35)},
     }
 );

@@ -1,8 +1,6 @@
 // Non-Abundant Sums
 
-type Number = usize;
-
-fn abundant_numbers(limit: Number) -> Vec<usize> {
+fn abundant_numbers(limit: usize) -> Vec<usize> {
     let mut proper_divisors_sum = vec![0; limit];
 
     for i in 1..limit {
@@ -13,10 +11,10 @@ fn abundant_numbers(limit: Number) -> Vec<usize> {
 
     (2..limit)
         .filter(|&n| proper_divisors_sum[n] > n)
-        .collect::<Vec<Number>>()
+        .collect::<Vec<usize>>()
 }
 
-fn non_abundant_sums(limit: Number) -> Number {
+fn non_abundant_sums(limit: usize) -> usize {
     let abundant_numbers = abundant_numbers(limit);
     let mut sum_of_2_abundants_sieve = vec![false; limit];
 

@@ -18,7 +18,7 @@ fn pythagorean_triplet_product(triplet_sum: i32) -> Option<i32> {
 
 pj_euler::run!(
     "Special Pythagorean triplet",
-    pythagorean_triplet_product(1000).unwrap()
+    pythagorean_triplet_product(1000)
 );
 
 pj_euler::test!(
@@ -26,6 +26,6 @@ pj_euler::test!(
         {triplet_3_4_5, pythagorean_triplet_product(12), Some(60)},
         {triplet_6_8_10, pythagorean_triplet_product(24), Some(480)},
         {triplet_7_24_25, pythagorean_triplet_product(56), Some(4200)},
-        {triplet_not_find_out, pythagorean_triplet_product(3), None}
+        {triplet_not_find_out, pythagorean_triplet_product(3), None},
     }
 );

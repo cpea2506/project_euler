@@ -1,5 +1,7 @@
 // 10001st prime
 
+use num_integer::Roots;
+
 trait Prime {
     fn is_prime(&self) -> bool;
 }
@@ -28,7 +30,7 @@ impl Prime for u32 {
             return false;
         }
 
-        let limit = (n as f32).sqrt() as u32;
+        let limit = n.sqrt();
         let mut number = 5;
 
         while number <= limit {

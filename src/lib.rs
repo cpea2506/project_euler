@@ -19,7 +19,7 @@ macro_rules! run {
             let (solution, time) = $crate::__get_time(|| $solution);
 
             println!(
-                "{name}: {solution} in {time}",
+                "{name}: {solution:?} in {time}",
                 name = $name,
                 solution = solution.fg_rgb::<255, 63, 128>(),
                 time = format_duration(time).fg_rgb::<101, 252, 218>(),

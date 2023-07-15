@@ -1,8 +1,6 @@
 // Amicable Numbers
 
-type Number = usize;
-
-fn sum_amicable_numbers(limit: Number) -> Number {
+fn sum_amicable_numbers(limit: usize) -> usize {
     let mut divisors_sum = vec![0; limit];
 
     for i in 1..limit {
@@ -22,6 +20,6 @@ pj_euler::run!("Amicable Numbers", sum_amicable_numbers(10000));
 
 pj_euler::test!(
     amicable_numbers {
-        {sum_amicable_numbers_less_than_1000, sum_amicable_numbers(1000), 220 + 284}
+        {sum_amicable_numbers_less_than_1000, sum_amicable_numbers(1000), 220 + 284},
     }
 );

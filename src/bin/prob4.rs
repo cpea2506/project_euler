@@ -48,6 +48,6 @@ pj_euler::run!("Largest palindrome product", largest_palidrome(3));
 pj_euler::test!(
     largest_palindrome_product {
         {largest_palidrome_of_two_digits, largest_palidrome(2), 9009},
-        {palindrome_test, is_palindrome(9009), true}
+        {palindrome_test, is_palindrome(9009), true},
     }
 );
