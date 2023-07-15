@@ -19,8 +19,6 @@ pj_euler::run!(
 
 pj_euler::test!(
     thousand_digit_fibonacci_number {
-        first_three_digit_has_144 {
-            assert_eq!(thousand_digit_fibonacci_number(3), 12);
-        },
+        {first_three_digit_has_144, thousand_digit_fibonacci_number(3), 12},
     }
 );
