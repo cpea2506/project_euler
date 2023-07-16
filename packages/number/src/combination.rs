@@ -43,6 +43,6 @@ mod tests {
 
     #[test]
     fn c2_4() {
-        assert_eq!(Combination::new(4, 2), 6);
+        assert_eq!(Combination::new(4, 2).value(), 6);
     }
 }
