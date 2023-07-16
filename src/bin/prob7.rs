@@ -1,55 +1,8 @@
 // 10001st prime
 
-use num_integer::Roots;
+use number::prime::IsPrime;
 
-trait Prime {
-    fn is_prime(&self) -> bool;
-}
-
-impl Prime for u32 {
-    fn is_prime(&self) -> bool {
-        let n = *self;
-
-        if n <= 1 {
-            return false;
-        }
-
-        if n < 4 {
-            return true;
-        }
-
-        if n % 2 == 0 {
-            return false;
-        }
-
-        if n < 9 {
-            return true;
-        }
-
-        if n % 3 == 0 {
-            return false;
-        }
-
-        let limit = n.sqrt();
-        let mut number = 5;
-
-        while number <= limit {
-            if self % number == 0 {
-                return false;
-            }
-
-            if self % (number + 2) == 0 {
-                return false;
-            }
-
-            number += 6;
-        }
-
-        true
-    }
-}
-
-fn nth_prime(bound: usize) -> u32 {
+fn nth_prime(bound: u32) -> u32 {
     if bound == 1 {
         return 2;
     }
