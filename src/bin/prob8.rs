@@ -1,7 +1,7 @@
 // Largest product in a series
 
 fn greatest_product(num_digits: usize) -> Option<usize> {
-    let data = include_str!("data.txt");
+    let data = include_str!("../data/prob8.txt");
 
     data.lines()
         .flat_map(|l| l.chars())

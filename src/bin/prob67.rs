@@ -1,12 +1,12 @@
-// Maximum Path Sum I
+// Maximum Path Sum II
 
 type Vec2D<T> = Vec<Vec<T>>;
 
 fn maximum_path_sum(with_test_example: bool) -> usize {
     let data = if !with_test_example {
-        include_str!("data.txt")
+        include_str!("../data/prob67.txt")
     } else {
-        include_str!("test.txt")
+        include_str!("../data/prob67_test.txt")
     };
 
     let mut vec_data = data
@@ -30,10 +30,10 @@ fn maximum_path_sum(with_test_example: bool) -> usize {
     vec_data[0][0]
 }
 
-pj_euler::run!("Maximum Path Sum I", maximum_path_sum(false));
+pj_euler::run!("Maximum Path Sum II", maximum_path_sum(false));
 
 pj_euler::test!(
-    maximum_path_sum_i {
+    maximum_path_sum_ii {
         {test_example, maximum_path_sum(true), 23}
     }
 );

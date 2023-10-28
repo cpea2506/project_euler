@@ -5,7 +5,7 @@ const DX: [isize; 4] = [1, 0, 1, -1];
 const DY: [isize; 4] = [0, 1, 1, 1];
 
 fn largest_product_in_grid(num_digits: usize) -> usize {
-    let data = include_str!("data.txt");
+    let data = include_str!("../data/prob11.txt");
 
     let vec_data = data
         .lines()

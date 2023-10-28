@@ -1,7 +1,7 @@
 // Large Sum
 
 fn ten_digits_of_large_sum() -> String {
-    let data = include_str!("data.txt");
+    let data = include_str!("../data/prob13.txt");
 
     data.lines()
         .filter_map(|l| l.parse::<f64>().ok())

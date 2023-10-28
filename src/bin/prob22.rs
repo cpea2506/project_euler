@@ -23,7 +23,9 @@ impl Alphabet {
 }
 
 fn names_scores_sum() -> usize {
-    let data = include_str!("data.txt").trim_end().replace('\"', "");
+    let data = include_str!("../data/prob22.txt")
+        .trim_end()
+        .replace('\"', "");
     let mut data = data.split(',').collect::<Vec<&str>>();
     data.sort_unstable();
 
@@ -45,7 +47,7 @@ pj_euler::test!(
             assert_eq!(alphabet.alphabetical_value("COLIN"), 53);
         },
         pamela_name_score_in_test_data {
-            let data = include_str!("test.txt").trim_end().replace('\"', "");
+            let data = include_str!("../data/prob22_test.txt").trim_end().replace('\"', "");
             let mut data = data.split(',').collect::<Vec<&str>>();
             data.sort_unstable();
 
