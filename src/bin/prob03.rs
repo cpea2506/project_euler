@@ -1,22 +1,22 @@
 // Largest prime factor
 
 fn largest_prime_factor(mut num: u64) -> u64 {
-    while num % 2 == 0 {
+    while num.is_multiple_of(2) {
         num >>= 1;
     }
 
     // it must be odd here
-    while num % 3 == 0 {
+    while num.is_multiple_of(3) {
         num /= 3;
     }
 
     let mut i = 5;
     while i * i < num {
-        while num % i == 0 {
+        while num.is_multiple_of(i) {
             num /= i;
         }
 
-        while num % (i + 2) == 0 {
+        while num.is_multiple_of(i + 2) {
             num /= i + 2;
         }
 

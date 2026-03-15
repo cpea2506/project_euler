@@ -16,10 +16,10 @@ impl Divisor for usize {
                 break;
             }
 
-            if self % prime == 0 {
+            if self.is_multiple_of(prime) {
                 let mut factor_count = 0;
 
-                while self % prime == 0 {
+                while self.is_multiple_of(prime) {
                     self /= prime;
                     factor_count += 1;
                 }

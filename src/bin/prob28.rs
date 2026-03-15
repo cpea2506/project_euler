@@ -3,7 +3,10 @@
 use number::sum::Sum;
 
 fn spiral_diagonals_sum(length: usize) -> usize {
-    assert!(length % 2 != 0, "The length of matrix must be odd!");
+    assert!(
+        !length.is_multiple_of(2),
+        "The length of matrix must be odd!"
+    );
 
     let diagonal_len = length / 2;
 
